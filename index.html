@@ -9,14 +9,9 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0d1117;
-      --bg2: #161b22;
-      --border: #30363d;
-      --cyan: #00f7ff;
-      --cyan2: #00bcd4;
-      --text: #c9d1d9;
-      --muted: #8b949e;
-      --white: #f0f6fc;
+      --bg: #0d1117; --bg2: #161b22; --border: #30363d;
+      --cyan: #00f7ff; --cyan2: #00bcd4; --text: #c9d1d9;
+      --muted: #8b949e; --white: #f0f6fc;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
@@ -24,8 +19,15 @@
     /* NAV */
     nav { position: fixed; top: 0; width: 100%; background: rgba(13,17,23,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0.9rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: 'Fira Code', monospace; color: var(--cyan); font-size: 1.2rem; font-weight: 600; text-decoration: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 1.8rem; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-right { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--cyan); }
+
+    /* LANG TOGGLE */
+    .lang-toggle { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-left: 1.4rem; }
+    .lang-btn { padding: 0.3rem 0.7rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; font-family: 'Fira Code', monospace; }
+    .lang-btn.active { background: var(--cyan); color: #0d1117; }
+    .lang-btn:hover:not(.active) { color: var(--white); }
 
     /* HERO */
     .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; background: radial-gradient(ellipse at top, #0d2a2e 0%, var(--bg) 60%); }
@@ -44,14 +46,14 @@
     section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
     .section-label { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
     .section-title { font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 2.5rem; }
-    .divider { width: 100%; height: 1px; background: var(--border); margin: 0 auto; }
+    .divider { width: 100%; height: 1px; background: var(--border); }
 
     /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
     .about-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.25s; }
     .about-card:hover { border-color: var(--cyan); }
-    .about-card h3 { color: var(--white); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .about-card h3 { color: var(--white); margin-bottom: 0.5rem; }
     .about-card p { color: var(--muted); font-size: 0.95rem; }
 
     /* STACK */
@@ -66,37 +68,51 @@
     .footer-links a { color: var(--muted); transition: color 0.2s; font-size: 0.95rem; text-decoration: none; }
     .footer-links a:hover { color: var(--cyan); }
 
-    /* TYPING CURSOR */
     .cursor { display: inline-block; width: 3px; height: 1em; background: var(--cyan); margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: middle; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    /* STATS */
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
-    .stat-num { font-size: 2rem; font-weight: 700; color: var(--cyan); font-family: 'Fira Code', monospace; }
-    .stat-label { color: var(--muted); font-size: 0.85rem; margin-top: 0.25rem; }
+    /* Hide lang content */
+    [data-lang] { display: none; }
+    body.lang-en [data-lang="en"] { display: block; }
+    body.lang-pt [data-lang="pt"] { display: block; }
+    body.lang-en [data-lang-inline="en"],
+    body.lang-pt [data-lang-inline="pt"] { display: inline; }
+    [data-lang-inline] { display: none; }
   </style>
 </head>
-<body>
+<body class="lang-en">
 
 <nav>
   <a href="#" class="logo">&gt; SkinDevX_</a>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#stack">Stack</a>
-    <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#about"><span data-lang-inline="en">About</span><span data-lang-inline="pt">Sobre</span></a>
+      <a href="#stack">Stack</a>
+      <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-badge">&#128310; Open to collaboration</div>
+    <div class="hero-badge">
+      <span data-lang-inline="en">&#128310; Open to collaboration</span>
+      <span data-lang-inline="pt">&#128310; Aberto a colabora&ccedil;&otilde;es</span>
+    </div>
     <h1>Hi, I'm <span>SkinDevX</span> <span class="cursor"></span></h1>
-    <p>Developer &amp; Engineer based in Brazil. Passionate about building tech solutions, automation, and clean code.</p>
+    <p data-lang="en">Developer &amp; Engineer based in Brazil. Passionate about building tech solutions, automation, and clean code.</p>
+    <p data-lang="pt">Desenvolvedor &amp; Engenheiro baseado no Brasil. Apaixonado por solu&ccedil;&otilde;es tecnol&oacute;gicas, automa&ccedil;&atilde;o e c&oacute;digo limpo.</p>
     <div class="hero-btns">
       <a href="https://github.com/SkinDevX" class="btn btn-primary" target="_blank">&#128279; GitHub Profile</a>
-      <a href="#about" class="btn btn-outline">Learn More</a>
+      <a href="#about" class="btn btn-outline">
+        <span data-lang-inline="en">Learn More</span>
+        <span data-lang-inline="pt">Saiba Mais</span>
+      </a>
     </div>
   </div>
 </section>
@@ -105,24 +121,31 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-label">// about me</div>
-  <h2 class="section-title">Who is SkinDevX?</h2>
+  <div class="section-label">// <span data-lang-inline="en">about me</span><span data-lang-inline="pt">sobre mim</span></div>
+  <h2 class="section-title">
+    <span data-lang-inline="en">Who is SkinDevX?</span>
+    <span data-lang-inline="pt">Quem &eacute; SkinDevX?</span>
+  </h2>
   <div class="about-grid">
     <div class="about-card">
-      <h3>&#128295; Builder</h3>
-      <p>Building tech solutions for engineering &amp; business challenges. Always looking for efficient and scalable approaches.</p>
+      <h3>&#128295; <span data-lang-inline="en">Builder</span><span data-lang-inline="pt">Construtor</span></h3>
+      <p data-lang="en">Building tech solutions for engineering &amp; business challenges. Always looking for efficient and scalable approaches.</p>
+      <p data-lang="pt">Construindo solu&ccedil;&otilde;es tecnol&oacute;gicas para desafios de engenharia e neg&oacute;cios. Sempre em busca de abordagens eficientes e escal&aacute;veis.</p>
     </div>
     <div class="about-card">
-      <h3>&#127757; Based in Brazil</h3>
-      <p>Working remotely, collaborating globally. Open to projects from anywhere in the world.</p>
+      <h3>&#127757; <span data-lang-inline="en">Based in Brazil</span><span data-lang-inline="pt">Baseado no Brasil</span></h3>
+      <p data-lang="en">Working remotely, collaborating globally. Open to projects from anywhere in the world.</p>
+      <p data-lang="pt">Trabalhando remotamente, colaborando globalmente. Aberto a projetos de qualquer lugar do mundo.</p>
     </div>
     <div class="about-card">
-      <h3>&#128218; Always Learning</h3>
-      <p>Constantly evolving — new frameworks, tools, and paradigms. The best code is the one written tomorrow.</p>
+      <h3>&#128218; <span data-lang-inline="en">Always Learning</span><span data-lang-inline="pt">Sempre Aprendendo</span></h3>
+      <p data-lang="en">Constantly evolving — new frameworks, tools, and paradigms. The best code is the one written tomorrow.</p>
+      <p data-lang="pt">Em constante evolu&ccedil;&atilde;o — novos frameworks, ferramentas e paradigmas. O melhor c&oacute;digo &eacute; o que ser&aacute; escrito amanh&atilde;.</p>
     </div>
     <div class="about-card">
-      <h3>&#9889; Innovation</h3>
-      <p>Passionate about automation, efficiency, and clean architecture. Building things that last.</p>
+      <h3>&#9889; <span data-lang-inline="en">Innovation</span><span data-lang-inline="pt">Inova&ccedil;&atilde;o</span></h3>
+      <p data-lang="en">Passionate about automation, efficiency, and clean architecture. Building things that last.</p>
+      <p data-lang="pt">Apaixonado por automa&ccedil;&atilde;o, efici&ecirc;ncia e arquitetura limpa. Construindo coisas que durem.</p>
     </div>
   </div>
 </section>
@@ -132,14 +155,17 @@
 <!-- STACK -->
 <section id="stack">
   <div class="section-label">// tech stack</div>
-  <h2 class="section-title">Technologies</h2>
+  <h2 class="section-title">
+    <span data-lang-inline="en">Technologies</span>
+    <span data-lang-inline="pt">Tecnologias</span>
+  </h2>
   <div class="stack-grid">
     <span class="stack-item">&#128013; Python</span>
     <span class="stack-item">&#128293; JavaScript</span>
     <span class="stack-item">&#128196; Git</span>
     <span class="stack-item">&#9729; GitHub</span>
     <span class="stack-item">&#129489;&#8205;&#128187; VS Code</span>
-    <span class="stack-item">&#128736; Automation</span>
+    <span class="stack-item">&#128736; <span data-lang-inline="en">Automation</span><span data-lang-inline="pt">Automa&ccedil;&atilde;o</span></span>
     <span class="stack-item">&#128200; Data &amp; Analytics</span>
     <span class="stack-item">&#127760; Web Dev</span>
   </div>
@@ -151,10 +177,25 @@
 <footer>
   <div class="footer-links">
     <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
-    <a href="https://github.com/SkinDevX?tab=repositories" target="_blank">Repositories</a>
+    <a href="https://github.com/SkinDevX?tab=repositories" target="_blank">
+      <span data-lang-inline="en">Repositories</span>
+      <span data-lang-inline="pt">Reposit&oacute;rios</span>
+    </a>
   </div>
   <p>"Build. Learn. Evolve." &mdash; <a href="https://github.com/SkinDevX">SkinDevX</a></p>
 </footer>
 
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
+    localStorage.setItem('skindevx-lang', lang);
+  }
+  // Load saved preference
+  const saved = localStorage.getItem('skindevx-lang');
+  if (saved) setLang(saved);
+</script>
 </body>
-</html>
+                                                   </html>
