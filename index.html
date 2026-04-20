@@ -1,198 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkinDevX | Developer Portfolio</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Desenvolvedor & Engenheiro baseado no Brasil. Python, SQL, AI Agents, Automação e Desenvolvimento ERP.">
+  <meta name="author" content="SkinDevX">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skindevx.github.io/">
+  <meta property="og:title" content="SkinDevX | Developer Portfolio">
+  <meta property="og:description" content="Desenvolvedor & Engenheiro baseado no Brasil. Python, SQL, AI Agents, Automação e Desenvolvimento ERP.">
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/SkinDevX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SkinDevX | Developer Portfolio">
+  <meta name="twitter:description" content="Desenvolvedor & Engenheiro baseado no Brasil. Python, SQL, AI Agents, Automação e Desenvolvimento ERP.">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d1117'/><text y='.85em' font-size='72' x='12'>💻</text></svg>">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0d1117; --bg2: #161b22; --border: #30363d; --cyan: #00f7ff; --cyan2: #00bcd4; --text: #c9d1d9; --muted: #8b949e; --white: #f0f6fc; }
+    :root {
+      --bg: #0d1117; --bg2: #161b22; --bg3: #1c2128;
+      --cyan: #00f5d4; --purple: #a78bfa; --green: #34d399;
+      --text: #e6edf3; --muted: #8b949e; --border: #30363d;
+      --card: #161b22;
+    }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
-    nav { position: fixed; top: 0; width: 100%; background: rgba(13,17,23,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0.9rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: 'Fira Code', monospace; color: var(--cyan); font-size: 1.2rem; font-weight: 600; text-decoration: none; }
-    .nav-right { display: flex; align-items: center; gap: 0.5rem; }
-    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.9rem; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--cyan); }
-    .lang-toggle { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-left: 1.4rem; }
-    .lang-btn { padding: 0.3rem 0.7rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; font-family: 'Fira Code', monospace; }
-    .lang-btn.active { background: var(--cyan); color: #0d1117; }
-    .lang-btn:hover:not(.active) { color: var(--white); }
-    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; background: radial-gradient(ellipse at top, #0d2a2e 0%, var(--bg) 60%); }
-    .hero-badge { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--cyan); background: rgba(0,247,255,0.08); border: 1px solid rgba(0,247,255,0.2); border-radius: 50px; padding: 0.35rem 1rem; display: inline-block; margin-bottom: 1.5rem; }
-    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
-    .hero h1 span { color: var(--cyan); }
-    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin: 0 auto 2.5rem; }
-    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; border: 2px solid transparent; }
-    .btn-primary { background: var(--cyan); color: #0d1117; }
-    .btn-primary:hover { background: var(--cyan2); transform: translateY(-2px); box-shadow: 0 0 20px rgba(0,247,255,0.3); }
-    .btn-outline { border-color: var(--border); color: var(--text); }
-    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
-    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
-    .section-label { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-    .section-title { font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 2.5rem; }
-    .divider { width: 100%; height: 1px; background: var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.25s; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(13,17,23,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: .85rem 2rem; display: flex; align-items: center; justify-content: space-between; z-index: 100; }
+    .nav-logo { font-family: 'JetBrains Mono', monospace; color: var(--cyan); font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .lang-btns { display: flex; gap: .4rem; margin-left: 1rem; }
+    .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: .25rem .65rem; border-radius: 6px; cursor: pointer; font-size: .8rem; font-family: 'Inter', sans-serif; transition: all .2s; }
+    .lang-btn.active { background: var(--cyan); color: var(--bg); border-color: var(--cyan); font-weight: 600; }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; background: radial-gradient(ellipse at 50% 60%, rgba(0,245,212,.07) 0%, transparent 60%); }
+    .hero-badge { background: rgba(0,245,212,.08); border: 1px solid rgba(0,245,212,.25); color: var(--cyan); padding: .4rem 1rem; border-radius: 999px; font-size: .8rem; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .hero-badge::before { content: '◆'; font-size: .6rem; }
+    .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; }
+    .hero-title span { color: var(--cyan); }
+    .hero-desc { color: var(--muted); font-size: 1.1rem; max-width: 520px; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { background: var(--cyan); color: var(--bg); padding: .75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: opacity .2s; display: inline-flex; align-items: center; gap: .5rem; }
+    .btn-primary:hover { opacity: .85; }
+    .btn-secondary { background: transparent; color: var(--text); padding: .75rem 1.75rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; font-weight: 500; transition: border-color .2s; }
+    .btn-secondary:hover { border-color: var(--cyan); }
+
+    /* SECTIONS */
+    section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+    .section-label { font-family: 'JetBrains Mono', monospace; color: var(--cyan); font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .75rem; }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; }
+    .divider { height: 1px; background: var(--border); margin: 0 auto; max-width: 900px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .about-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color .25s; }
     .about-card:hover { border-color: var(--cyan); }
-    .about-card h3 { color: var(--white); margin-bottom: 0.5rem; }
-    .about-card p { color: var(--muted); font-size: 0.95rem; }
-    /* STACK CATEGORIES */
+    .about-card-title { font-weight: 600; margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+    .about-card p { color: var(--muted); font-size: .9rem; }
+
+    /* STACK */
     .stack-category { margin-bottom: 2rem; }
-    .stack-category-label { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-    .stack-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-    .stack-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.45rem 0.9rem; font-family: 'Fira Code', monospace; font-size: 0.82rem; color: var(--cyan); transition: all 0.2s; }
-    .stack-item:hover { border-color: var(--cyan); background: rgba(0,247,255,0.06); transform: translateY(-2px); }
-    .stack-item.ai { color: #a78bfa; border-color: #3d2e5e; }
-    .stack-item.ai:hover { border-color: #a78bfa; background: rgba(167,139,250,0.06); }
-    .stack-item.erp { color: #34d399; border-color: #1a3d2e; }
-    .stack-item.erp:hover { border-color: #34d399; background: rgba(52,211,153,0.06); }
-    footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
-    footer a { color: var(--cyan); text-decoration: none; }
-    .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; }
-    .footer-links a { color: var(--muted); transition: color 0.2s; font-size: 0.95rem; text-decoration: none; }
-    .footer-links a:hover { color: var(--cyan); }
-    .cursor { display: inline-block; width: 3px; height: 1em; background: var(--cyan); margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: middle; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    [data-lang] { display: none; }
+    .stack-category-label { font-family: 'JetBrains Mono', monospace; font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem; }
+    .stack-category-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .stack-grid { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .stack-item { border: 1px solid var(--border); border-radius: 8px; padding: .45rem .9rem; font-size: .88rem; color: var(--cyan); transition: all .2s; cursor: default; }
+    .stack-item:hover { background: rgba(0,245,212,.07); }
+    .stack-item.ai { color: var(--purple); border-color: #3d2e5e; }
+    .stack-item.ai:hover { background: rgba(167,139,250,.07); }
+    .stack-item.erp { color: var(--green); border-color: #1a3d2e; }
+    .stack-item.erp:hover { background: rgba(52,211,153,.07); }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; transition: border-color .25s, transform .2s; text-decoration: none; color: var(--text); }
+    .project-card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+    .project-name { font-weight: 600; font-size: 1rem; color: var(--text); }
+    .project-icon { font-size: 1.4rem; }
+    .project-desc { color: var(--muted); font-size: .88rem; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .project-tag { background: rgba(0,245,212,.06); border: 1px solid rgba(0,245,212,.15); color: var(--cyan); border-radius: 6px; padding: .2rem .6rem; font-size: .75rem; font-family: 'JetBrains Mono', monospace; }
+    .project-tag.ai { background: rgba(167,139,250,.06); border-color: rgba(167,139,250,.2); color: var(--purple); }
+    .project-tag.erp { background: rgba(52,211,153,.06); border-color: rgba(52,211,153,.2); color: var(--green); }
+    .project-link { font-size: .8rem; color: var(--muted); display: flex; align-items: center; gap: .35rem; transition: color .2s; }
+    .project-card:hover .project-link { color: var(--cyan); }
+
+    /* CONTACT */
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    @media(max-width: 640px) { .contact-wrapper { grid-template-columns: 1fr; } }
+    .contact-info h3 { font-size: 1.2rem; margin-bottom: .75rem; }
+    .contact-info p { color: var(--muted); font-size: .92rem; margin-bottom: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link { display: flex; align-items: center; gap: .65rem; color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    .contact-link:hover { color: var(--cyan); }
+    .contact-link-icon { width: 36px; height: 36px; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    form { display: flex; flex-direction: column; gap: .85rem; }
+    form input, form textarea { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; color: var(--text); font-family: 'Inter', sans-serif; font-size: .9rem; resize: vertical; transition: border-color .2s; outline: none; width: 100%; }
+    form input:focus, form textarea:focus { border-color: var(--cyan); }
+    form input::placeholder, form textarea::placeholder { color: var(--muted); }
+    form textarea { min-height: 120px; }
+    .form-submit { background: var(--cyan); color: var(--bg); border: none; border-radius: 8px; padding: .75rem 1.5rem; font-weight: 600; font-family: 'Inter', sans-serif; font-size: .95rem; cursor: pointer; transition: opacity .2s; }
+    .form-submit:hover { opacity: .85; }
+    .form-success { display: none; background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.25); color: var(--green); border-radius: 8px; padding: 1rem; text-align: center; font-size: .9rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: .875rem; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-brand { color: var(--cyan); font-weight: 600; text-decoration: none; }
+
+    /* SCROLL ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* LANG */
+    [data-lang="en"] { display: none; }
+    body.lang-en [data-lang="pt"] { display: none; }
     body.lang-en [data-lang="en"] { display: block; }
-    body.lang-pt [data-lang="pt"] { display: block; }
-    body.lang-en [data-lang-inline="en"], body.lang-pt [data-lang-inline="pt"] { display: inline; }
-    [data-lang-inline] { display: none; }
+    [data-lang-inline="en"] { display: none; }
+    body.lang-en [data-lang-inline="pt"] { display: none; }
+    body.lang-en [data-lang-inline="en"] { display: inline; }
   </style>
 </head>
-<body class="lang-en">
+<body class="lang-pt">
 
-<nav>
-  <a href="#" class="logo">&gt; SkinDevX_</a>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="#about"><span data-lang-inline="en">About</span><span data-lang-inline="pt">Sobre</span></a>
-      <a href="#stack">Stack</a>
-      <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">&gt; SkinDevX_</a>
+    <ul class="nav-links">
+      <li><a href="#about"><span data-lang-inline="pt">Sobre</span><span data-lang-inline="en">About</span></a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#projects"><span data-lang-inline="pt">Projetos</span><span data-lang-inline="en">Projects</span></a></li>
+      <li><a href="#contact"><span data-lang-inline="pt">Contato</span><span data-lang-inline="en">Contact</span></a></li>
+      <li><a href="https://github.com/SkinDevX" target="_blank">GitHub</a></li>
+    </ul>
+    <div class="lang-btns">
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" onclick="setLang('pt')">PT</button>
     </div>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('pt')">PT</button>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-<section class="hero">
-  <div>
+  <!-- HERO -->
+  <section id="hero">
     <div class="hero-badge">
-      <span data-lang-inline="en">&#128310; Open to collaboration</span>
-      <span data-lang-inline="pt">&#128310; Aberto a colabora&ccedil;&otilde;es</span>
+      <span data-lang-inline="pt">Aberto a colaborações</span>
+      <span data-lang-inline="en">Open to collaborations</span>
     </div>
-    <h1>Hi, I'm <span>SkinDevX</span> <span class="cursor"></span></h1>
-    <p data-lang="en">Developer & Engineer based in Brazil. Building ERP systems, AI agents, and automation solutions.</p>
-    <p data-lang="pt">Desenvolvedor & Engenheiro baseado no Brasil. Construindo sistemas ERP, agentes de IA e solu&ccedil;&otilde;es de automa&ccedil;&atilde;o.</p>
+    <h1 class="hero-title">Hi, I'm <span>SkinDevX</span></h1>
+    <p class="hero-desc">
+      <span data-lang-inline="pt">Desenvolvedor &amp; Engenheiro baseado no Brasil. Apaixonado por soluções tecnológicas, automação e código limpo.</span>
+      <span data-lang-inline="en">Developer &amp; Engineer based in Brazil. Passionate about tech solutions, automation and clean code.</span>
+    </p>
     <div class="hero-btns">
-      <a href="https://github.com/SkinDevX" class="btn btn-primary" target="_blank">&#128279; GitHub Profile</a>
-      <a href="#about" class="btn btn-outline">
-        <span data-lang-inline="en">Learn More</span><span data-lang-inline="pt">Saiba Mais</span>
+      <a href="https://github.com/SkinDevX" target="_blank" class="btn-primary">&#128279; GitHub Profile</a>
+      <a href="#about" class="btn-secondary">
+        <span data-lang-inline="pt">Saiba Mais</span>
+        <span data-lang-inline="en">Learn More</span>
       </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<section id="about">
-  <div class="section-label">// <span data-lang-inline="en">about me</span><span data-lang-inline="pt">sobre mim</span></div>
-  <h2 class="section-title">
-    <span data-lang-inline="en">Who is SkinDevX?</span><span data-lang-inline="pt">Quem &eacute; SkinDevX?</span>
-  </h2>
-  <div class="about-grid">
-    <div class="about-card">
-      <h3>&#9881; <span data-lang-inline="en">ERP Developer</span><span data-lang-inline="pt">Desenvolvedor ERP</span></h3>
-      <p data-lang="en">Currently building an ERP system from the ground up, integrating engineering and business processes into one platform.</p>
-      <p data-lang="pt">Desenvolvendo um sistema ERP do zero, integrando processos de engenharia e neg&oacute;cios em uma plataforma.</p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div data-lang="pt">
+      <p class="section-label">// SOBRE MIM</p>
+      <h2 class="section-title">Quem sou eu</h2>
     </div>
-    <div class="about-card">
-      <h3>&#129302; <span data-lang-inline="en">AI Power User</span><span data-lang-inline="pt">Usu&aacute;rio Avan&ccedil;ado de IA</span></h3>
-      <p data-lang="en">Daily user of AI tools — building assistants, agents, and automation pipelines to boost productivity and solve real problems.</p>
-      <p data-lang="pt">Usu&aacute;rio di&aacute;rio de IA — criando assistentes, agentes e pipelines de automa&ccedil;&atilde;o para aumentar produtividade e resolver problemas reais.</p>
+    <div data-lang="en">
+      <p class="section-label">// ABOUT ME</p>
+      <h2 class="section-title">Who I am</h2>
     </div>
-    <div class="about-card">
-      <h3>&#127757; <span data-lang-inline="en">Based in Brazil</span><span data-lang-inline="pt">Baseado no Brasil</span></h3>
-      <p data-lang="en">Working remotely, collaborating globally. Open to projects from anywhere in the world.</p>
-      <p data-lang="pt">Trabalhando remotamente, colaborando globalmente. Aberto a projetos de qualquer lugar do mundo.</p>
+    <div class="about-grid">
+      <div class="about-card fade-up">
+        <div class="about-card-title">&#128187; ERP Developer</div>
+        <p><span data-lang-inline="pt">Desenvolvendo sistemas ERP para operações industriais e de construção, integrando dados, processos e automação em uma única plataforma.</span><span data-lang-inline="en">Building ERP systems for industrial and construction operations, integrating data, processes and automation in a single platform.</span></p>
+      </div>
+      <div class="about-card fade-up">
+        <div class="about-card-title">&#129302; AI Power User</div>
+        <p><span data-lang-inline="pt">Uso IA no dia a dia — agentes, assistentes, automação de tarefas e apoio a código. Explorando o que há de mais avançado em LLMs aplicados.</span><span data-lang-inline="en">Using AI daily — agents, assistants, task automation and code support. Exploring the frontier of applied LLMs.</span></p>
+      </div>
+      <div class="about-card fade-up">
+        <div class="about-card-title">&#127921; <span data-lang-inline="pt">Sempre Aprendendo</span><span data-lang-inline="en">Always Learning</span></div>
+        <p><span data-lang-inline="pt">Em constante evolução — novos frameworks, ferramentas e paradigmas. O melhor código é o que será escrito amanhã.</span><span data-lang-inline="en">In constant evolution — new frameworks, tools and paradigms. The best code is the one written tomorrow.</span></p>
+      </div>
+      <div class="about-card fade-up">
+        <div class="about-card-title">&#9889; <span data-lang-inline="pt">Inovação</span><span data-lang-inline="en">Innovation</span></div>
+        <p><span data-lang-inline="pt">Apaixonado por automação, eficiência e arquitetura limpa. Construindo coisas que durem.</span><span data-lang-inline="en">Passionate about automation, efficiency and clean architecture. Building things that last.</span></p>
+      </div>
     </div>
-    <div class="about-card">
-      <h3>&#9889; <span data-lang-inline="en">Always Evolving</span><span data-lang-inline="pt">Sempre Evoluindo</span></h3>
-      <p data-lang="en">Passionate about automation, clean code, and turning complex problems into elegant solutions.</p>
-      <p data-lang="pt">Apaixonado por automa&ccedil;&atilde;o, c&oacute;digo limpo e transformar problemas complexos em solu&ccedil;&otilde;es elegantes.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div data-lang="pt"><p class="section-label">// TECH STACK</p><h2 class="section-title">Tecnologias</h2></div>
+    <div data-lang="en"><p class="section-label">// TECH STACK</p><h2 class="section-title">Technologies</h2></div>
+
+    <div class="stack-category fade-up">
+      <div class="stack-category-label">&#128187; <span data-lang-inline="pt">Linguagens &amp; Dev</span><span data-lang-inline="en">Languages &amp; Dev</span></div>
+      <div class="stack-grid">
+        <span class="stack-item">&#128013; Python</span>
+        <span class="stack-item">&#128293; JavaScript</span>
+        <span class="stack-item">&#128196; HTML / CSS</span>
+        <span class="stack-item">&#127803; SQL</span>
+      </div>
     </div>
-  </div>
-</section>
 
-<div class="divider"></div>
-
-<section id="stack">
-  <div class="section-label">// tech stack</div>
-  <h2 class="section-title">
-    <span data-lang-inline="en">Technologies</span><span data-lang-inline="pt">Tecnologias</span>
-  </h2>
-
-  <div class="stack-category">
-    <div class="stack-category-label">&#128187; <span data-lang-inline="en">Languages & Dev</span><span data-lang-inline="pt">Linguagens & Dev</span></div>
-    <div class="stack-grid">
-      <span class="stack-item">&#128013; Python</span>
-      <span class="stack-item">&#128293; JavaScript</span>
-      <span class="stack-item">&#128196; HTML / CSS</span>
-      <span class="stack-item">&#128202; SQL</span>
+    <div class="stack-category fade-up">
+      <div class="stack-category-label">&#129302; AI &amp; <span data-lang-inline="pt">Automação</span><span data-lang-inline="en">Automation</span></div>
+      <div class="stack-grid">
+        <span class="stack-item ai">&#129681; LLM / AI Agents</span>
+        <span class="stack-item ai">&#127756; Claude / GPT</span>
+        <span class="stack-item ai">&#10009; <span data-lang-inline="pt">Pipelines de Automação</span><span data-lang-inline="en">Automation Pipelines</span></span>
+        <span class="stack-item ai">&#128172; <span data-lang-inline="pt">Assistentes de IA</span><span data-lang-inline="en">AI Assistants</span></span>
+      </div>
     </div>
-  </div>
 
-  <div class="stack-category">
-    <div class="stack-category-label">&#129302; AI & <span data-lang-inline="en">Automation</span><span data-lang-inline="pt">Automa&ccedil;&atilde;o</span></div>
-    <div class="stack-grid">
-      <span class="stack-item ai">&#129504; LLM / AI Agents</span>
-      <span class="stack-item ai">&#127757; Claude / GPT</span>
-      <span class="stack-item ai">&#128736; <span data-lang-inline="en">Automation Pipelines</span><span data-lang-inline="pt">Pipelines de Automa&ccedil;&atilde;o</span></span>
-      <span class="stack-item ai">&#128172; <span data-lang-inline="en">AI Assistants</span><span data-lang-inline="pt">Assistentes de IA</span></span>
+    <div class="stack-category fade-up">
+      <div class="stack-category-label">&#9881; <span data-lang-inline="pt">Sistemas &amp; Ferramentas</span><span data-lang-inline="en">Systems &amp; Tools</span></div>
+      <div class="stack-grid">
+        <span class="stack-item erp">&#128203; <span data-lang-inline="pt">Desenvolvimento ERP</span><span data-lang-inline="en">ERP Development</span></span>
+        <span class="stack-item erp">&#128200; <span data-lang-inline="pt">Dados &amp; Análise</span><span data-lang-inline="en">Data &amp; Analytics</span></span>
+        <span class="stack-item erp">&#128196; Git</span>
+        <span class="stack-item erp">&#9749; GitHub</span>
+        <span class="stack-item erp">&#128103; VS Code</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="stack-category">
-    <div class="stack-category-label">&#9881; <span data-lang-inline="en">Systems & Tools</span><span data-lang-inline="pt">Sistemas & Ferramentas</span></div>
-    <div class="stack-grid">
-      <span class="stack-item erp">&#128203; <span data-lang-inline="en">ERP Development</span><span data-lang-inline="pt">Desenvolvimento ERP</span></span>
-      <span class="stack-item erp">&#128200; <span data-lang-inline="en">Data & Analytics</span><span data-lang-inline="pt">Dados & An&aacute;lise</span></span>
-      <span class="stack-item">&#128196; Git</span>
-      <span class="stack-item">&#9729; GitHub</span>
-      <span class="stack-item">&#129489;&#8205;&#128187; VS Code</span>
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div data-lang="pt"><p class="section-label">// PROJETOS</p><h2 class="section-title">O que estou construindo</h2></div>
+    <div data-lang="en"><p class="section-label">// PROJECTS</p><h2 class="section-title">What I'm building</h2></div>
+    <div class="projects-grid">
+
+      <a class="project-card fade-up" href="https://github.com/SkinDevX" target="_blank">
+        <div class="project-header">
+          <span class="project-name">ERP Dev Suite</span>
+          <span class="project-icon">&#128203;</span>
+        </div>
+        <p class="project-desc"><span data-lang-inline="pt">Sistema ERP modular para gestão de operações industriais — controle de obras, RH, financeiro e relatórios técnicos integrados.</span><span data-lang-inline="en">Modular ERP system for industrial operations management — project control, HR, finance and integrated technical reports.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag erp">ERP</span>
+        </div>
+        <div class="project-link">&#10140; GitHub</div>
+      </a>
+
+      <a class="project-card fade-up" href="https://github.com/SkinDevX" target="_blank">
+        <div class="project-header">
+          <span class="project-name">AI Automation Toolkit</span>
+          <span class="project-icon">&#129302;</span>
+        </div>
+        <p class="project-desc"><span data-lang-inline="pt">Conjunto de agentes e scripts de automação usando LLMs para tarefas de engenharia — geração de relatórios, análise de dados e assistentes contextuais.</span><span data-lang-inline="en">Collection of agents and automation scripts using LLMs for engineering tasks — report generation, data analysis and contextual assistants.</span></p>
+        <div class="project-tags">
+          <span class="project-tag ai">AI Agents</span>
+          <span class="project-tag ai">LLM</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <div class="project-link">&#10140; GitHub</div>
+      </a>
+
+      <a class="project-card fade-up" href="https://github.com/SkinDevX" target="_blank">
+        <div class="project-header">
+          <span class="project-name">Data & SQL Scripts</span>
+          <span class="project-icon">&#127803;</span>
+        </div>
+        <p class="project-desc"><span data-lang-inline="pt">Coleção de queries SQL, dashboards e análises de dados para suporte à decisão em projetos de construção e engenharia.</span><span data-lang-inline="en">Collection of SQL queries, dashboards and data analysis for decision support in construction and engineering projects.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag erp">Analytics</span>
+        </div>
+        <div class="project-link">&#10140; GitHub</div>
+      </a>
+
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<footer>
-  <div class="footer-links">
-    <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
-    <a href="https://github.com/SkinDevX?tab=repositories" target="_blank">
-      <span data-lang-inline="en">Repositories</span><span data-lang-inline="pt">Reposit&oacute;rios</span>
-    </a>
-  </div>
-  <p>"Build. Learn. Evolve." &mdash; <a href="https://github.com/SkinDevX">SkinDevX</a></p>
-</footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div data-lang="pt"><p class="section-label">// CONTATO</p><h2 class="section-title">Vamos conversar</h2></div>
+    <div data-lang="en"><p class="section-label">// CONTACT</p><h2 class="section-title">Let's talk</h2></div>
+    <div class="contact-wrapper">
+      <div class="contact-info fade-up">
+        <h3><span data-lang-inline="pt">Entre em contato</span><span data-lang-inline="en">Get in touch</span></h3>
+        <p><span data-lang-inline="pt">Aberto a colaborações, projetos e conversas sobre tecnologia, IA e desenvolvimento de software.</span><span data-lang-inline="en">Open to collaborations, projects and conversations about technology, AI and software development.</span></p>
+        <div class="contact-links">
+          <a href="https://github.com/SkinDevX" target="_blank" class="contact-link">
+            <div class="contact-link-icon">&#128049;</div>
+            github.com/SkinDevX
+          </a>
+          <a href="https://github.com/SkinDevX?tab=repositories" target="_blank" class="contact-link">
+            <div class="contact-link-icon">&#128218;</div>
+            <span data-lang-inline="pt">Repositórios públicos</span><span data-lang-inline="en">Public repositories</span>
+          </a>
+        </div>
+      </div>
+      <div class="fade-up">
+        <form action="https://formspree.io/f/xpwzqovv" method="POST" id="contact-form">
+          <input type="text" name="name" placeholder="Nome / Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Mensagem / Message" required></textarea>
+          <input type="hidden" name="_subject" value="Contato via SkinDevX Portfolio">
+          <button type="submit" class="form-submit">
+            <span data-lang-inline="pt">Enviar mensagem</span>
+            <span data-lang-inline="en">Send message</span>
+          </button>
+        </form>
+        <div class="form-success" id="form-success">
+          &#10003; <span data-lang-inline="pt">Mensagem enviada! Entrarei em contato em breve.</span><span data-lang-inline="en">Message sent! I'll get back to you soon.</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  function setLang(lang) {
-    document.body.className = 'lang-' + lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-    });
-    localStorage.setItem('skindevx-lang', lang);
-  }
-  const saved = localStorage.getItem('skindevx-lang');
-  if (saved) setLang(saved);
-</script>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
+      <a href="https://github.com/SkinDevX?tab=repositories" target="_blank">
+        <span data-lang-inline="pt">Repositórios</span><span data-lang-inline="en">Repositories</span>
+      </a>
+    </div>
+    <p>"Build. Learn. Evolve." &mdash; <a href="#hero" class="footer-brand">SkinDevX</a></p>
+  </footer>
+
+  <script>
+    // Language toggle
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+      localStorage.setItem('skindevx-lang', lang);
+    }
+    const saved = localStorage.getItem('skindevx-lang');
+    if (saved) setLang(saved);
+
+    // Scroll animations (IntersectionObserver)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Contact form AJAX (Formspree)
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }
+      });
+    }
+  </script>
 </body>
-</html>
+        </html>
