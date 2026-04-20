@@ -8,28 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0d1117; --bg2: #161b22; --border: #30363d;
-      --cyan: #00f7ff; --cyan2: #00bcd4; --text: #c9d1d9;
-      --muted: #8b949e; --white: #f0f6fc;
-    }
+    :root { --bg: #0d1117; --bg2: #161b22; --border: #30363d; --cyan: #00f7ff; --cyan2: #00bcd4; --text: #c9d1d9; --muted: #8b949e; --white: #f0f6fc; }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
-
-    /* NAV */
     nav { position: fixed; top: 0; width: 100%; background: rgba(13,17,23,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0.9rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: 'Fira Code', monospace; color: var(--cyan); font-size: 1.2rem; font-weight: 600; text-decoration: none; }
     .nav-right { display: flex; align-items: center; gap: 0.5rem; }
     .nav-links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--cyan); }
-
-    /* LANG TOGGLE */
     .lang-toggle { display: flex; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-left: 1.4rem; }
     .lang-btn { padding: 0.3rem 0.7rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; font-family: 'Fira Code', monospace; }
     .lang-btn.active { background: var(--cyan); color: #0d1117; }
     .lang-btn:hover:not(.active) { color: var(--white); }
-
-    /* HERO */
     .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; background: radial-gradient(ellipse at top, #0d2a2e 0%, var(--bg) 60%); }
     .hero-badge { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--cyan); background: rgba(0,247,255,0.08); border: 1px solid rgba(0,247,255,0.2); border-radius: 50px; padding: 0.35rem 1rem; display: inline-block; margin-bottom: 1.5rem; }
     .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
@@ -41,42 +31,37 @@
     .btn-primary:hover { background: var(--cyan2); transform: translateY(-2px); box-shadow: 0 0 20px rgba(0,247,255,0.3); }
     .btn-outline { border-color: var(--border); color: var(--text); }
     .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
-
-    /* SECTIONS */
-    section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
     .section-label { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
     .section-title { font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 2.5rem; }
     .divider { width: 100%; height: 1px; background: var(--border); }
-
-    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
     .about-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.25s; }
     .about-card:hover { border-color: var(--cyan); }
     .about-card h3 { color: var(--white); margin-bottom: 0.5rem; }
     .about-card p { color: var(--muted); font-size: 0.95rem; }
-
-    /* STACK */
-    .stack-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .stack-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--cyan); transition: all 0.2s; }
+    /* STACK CATEGORIES */
+    .stack-category { margin-bottom: 2rem; }
+    .stack-category-label { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+    .stack-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .stack-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.45rem 0.9rem; font-family: 'Fira Code', monospace; font-size: 0.82rem; color: var(--cyan); transition: all 0.2s; }
     .stack-item:hover { border-color: var(--cyan); background: rgba(0,247,255,0.06); transform: translateY(-2px); }
-
-    /* FOOTER */
+    .stack-item.ai { color: #a78bfa; border-color: #3d2e5e; }
+    .stack-item.ai:hover { border-color: #a78bfa; background: rgba(167,139,250,0.06); }
+    .stack-item.erp { color: #34d399; border-color: #1a3d2e; }
+    .stack-item.erp:hover { border-color: #34d399; background: rgba(52,211,153,0.06); }
     footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
     footer a { color: var(--cyan); text-decoration: none; }
     .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; }
     .footer-links a { color: var(--muted); transition: color 0.2s; font-size: 0.95rem; text-decoration: none; }
     .footer-links a:hover { color: var(--cyan); }
-
     .cursor { display: inline-block; width: 3px; height: 1em; background: var(--cyan); margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: middle; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    /* Hide lang content */
     [data-lang] { display: none; }
     body.lang-en [data-lang="en"] { display: block; }
     body.lang-pt [data-lang="pt"] { display: block; }
-    body.lang-en [data-lang-inline="en"],
-    body.lang-pt [data-lang-inline="pt"] { display: inline; }
+    body.lang-en [data-lang-inline="en"], body.lang-pt [data-lang-inline="pt"] { display: inline; }
     [data-lang-inline] { display: none; }
   </style>
 </head>
@@ -97,7 +82,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <div class="hero-badge">
@@ -105,13 +89,12 @@
       <span data-lang-inline="pt">&#128310; Aberto a colabora&ccedil;&otilde;es</span>
     </div>
     <h1>Hi, I'm <span>SkinDevX</span> <span class="cursor"></span></h1>
-    <p data-lang="en">Developer &amp; Engineer based in Brazil. Passionate about building tech solutions, automation, and clean code.</p>
-    <p data-lang="pt">Desenvolvedor &amp; Engenheiro baseado no Brasil. Apaixonado por solu&ccedil;&otilde;es tecnol&oacute;gicas, automa&ccedil;&atilde;o e c&oacute;digo limpo.</p>
+    <p data-lang="en">Developer & Engineer based in Brazil. Building ERP systems, AI agents, and automation solutions.</p>
+    <p data-lang="pt">Desenvolvedor & Engenheiro baseado no Brasil. Construindo sistemas ERP, agentes de IA e solu&ccedil;&otilde;es de automa&ccedil;&atilde;o.</p>
     <div class="hero-btns">
       <a href="https://github.com/SkinDevX" class="btn btn-primary" target="_blank">&#128279; GitHub Profile</a>
       <a href="#about" class="btn btn-outline">
-        <span data-lang-inline="en">Learn More</span>
-        <span data-lang-inline="pt">Saiba Mais</span>
+        <span data-lang-inline="en">Learn More</span><span data-lang-inline="pt">Saiba Mais</span>
       </a>
     </div>
   </div>
@@ -119,18 +102,21 @@
 
 <div class="divider"></div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-label">// <span data-lang-inline="en">about me</span><span data-lang-inline="pt">sobre mim</span></div>
   <h2 class="section-title">
-    <span data-lang-inline="en">Who is SkinDevX?</span>
-    <span data-lang-inline="pt">Quem &eacute; SkinDevX?</span>
+    <span data-lang-inline="en">Who is SkinDevX?</span><span data-lang-inline="pt">Quem &eacute; SkinDevX?</span>
   </h2>
   <div class="about-grid">
     <div class="about-card">
-      <h3>&#128295; <span data-lang-inline="en">Builder</span><span data-lang-inline="pt">Construtor</span></h3>
-      <p data-lang="en">Building tech solutions for engineering &amp; business challenges. Always looking for efficient and scalable approaches.</p>
-      <p data-lang="pt">Construindo solu&ccedil;&otilde;es tecnol&oacute;gicas para desafios de engenharia e neg&oacute;cios. Sempre em busca de abordagens eficientes e escal&aacute;veis.</p>
+      <h3>&#9881; <span data-lang-inline="en">ERP Developer</span><span data-lang-inline="pt">Desenvolvedor ERP</span></h3>
+      <p data-lang="en">Currently building an ERP system from the ground up, integrating engineering and business processes into one platform.</p>
+      <p data-lang="pt">Desenvolvendo um sistema ERP do zero, integrando processos de engenharia e neg&oacute;cios em uma plataforma.</p>
+    </div>
+    <div class="about-card">
+      <h3>&#129302; <span data-lang-inline="en">AI Power User</span><span data-lang-inline="pt">Usu&aacute;rio Avan&ccedil;ado de IA</span></h3>
+      <p data-lang="en">Daily user of AI tools — building assistants, agents, and automation pipelines to boost productivity and solve real problems.</p>
+      <p data-lang="pt">Usu&aacute;rio di&aacute;rio de IA — criando assistentes, agentes e pipelines de automa&ccedil;&atilde;o para aumentar produtividade e resolver problemas reais.</p>
     </div>
     <div class="about-card">
       <h3>&#127757; <span data-lang-inline="en">Based in Brazil</span><span data-lang-inline="pt">Baseado no Brasil</span></h3>
@@ -138,48 +124,60 @@
       <p data-lang="pt">Trabalhando remotamente, colaborando globalmente. Aberto a projetos de qualquer lugar do mundo.</p>
     </div>
     <div class="about-card">
-      <h3>&#128218; <span data-lang-inline="en">Always Learning</span><span data-lang-inline="pt">Sempre Aprendendo</span></h3>
-      <p data-lang="en">Constantly evolving — new frameworks, tools, and paradigms. The best code is the one written tomorrow.</p>
-      <p data-lang="pt">Em constante evolu&ccedil;&atilde;o — novos frameworks, ferramentas e paradigmas. O melhor c&oacute;digo &eacute; o que ser&aacute; escrito amanh&atilde;.</p>
-    </div>
-    <div class="about-card">
-      <h3>&#9889; <span data-lang-inline="en">Innovation</span><span data-lang-inline="pt">Inova&ccedil;&atilde;o</span></h3>
-      <p data-lang="en">Passionate about automation, efficiency, and clean architecture. Building things that last.</p>
-      <p data-lang="pt">Apaixonado por automa&ccedil;&atilde;o, efici&ecirc;ncia e arquitetura limpa. Construindo coisas que durem.</p>
+      <h3>&#9889; <span data-lang-inline="en">Always Evolving</span><span data-lang-inline="pt">Sempre Evoluindo</span></h3>
+      <p data-lang="en">Passionate about automation, clean code, and turning complex problems into elegant solutions.</p>
+      <p data-lang="pt">Apaixonado por automa&ccedil;&atilde;o, c&oacute;digo limpo e transformar problemas complexos em solu&ccedil;&otilde;es elegantes.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- STACK -->
 <section id="stack">
   <div class="section-label">// tech stack</div>
   <h2 class="section-title">
-    <span data-lang-inline="en">Technologies</span>
-    <span data-lang-inline="pt">Tecnologias</span>
+    <span data-lang-inline="en">Technologies</span><span data-lang-inline="pt">Tecnologias</span>
   </h2>
-  <div class="stack-grid">
-    <span class="stack-item">&#128013; Python</span>
-    <span class="stack-item">&#128293; JavaScript</span>
-    <span class="stack-item">&#128196; Git</span>
-    <span class="stack-item">&#9729; GitHub</span>
-    <span class="stack-item">&#129489;&#8205;&#128187; VS Code</span>
-    <span class="stack-item">&#128736; <span data-lang-inline="en">Automation</span><span data-lang-inline="pt">Automa&ccedil;&atilde;o</span></span>
-    <span class="stack-item">&#128200; Data &amp; Analytics</span>
-    <span class="stack-item">&#127760; Web Dev</span>
+
+  <div class="stack-category">
+    <div class="stack-category-label">&#128187; <span data-lang-inline="en">Languages & Dev</span><span data-lang-inline="pt">Linguagens & Dev</span></div>
+    <div class="stack-grid">
+      <span class="stack-item">&#128013; Python</span>
+      <span class="stack-item">&#128293; JavaScript</span>
+      <span class="stack-item">&#128196; HTML / CSS</span>
+      <span class="stack-item">&#128202; SQL</span>
+    </div>
+  </div>
+
+  <div class="stack-category">
+    <div class="stack-category-label">&#129302; AI & <span data-lang-inline="en">Automation</span><span data-lang-inline="pt">Automa&ccedil;&atilde;o</span></div>
+    <div class="stack-grid">
+      <span class="stack-item ai">&#129504; LLM / AI Agents</span>
+      <span class="stack-item ai">&#127757; Claude / GPT</span>
+      <span class="stack-item ai">&#128736; <span data-lang-inline="en">Automation Pipelines</span><span data-lang-inline="pt">Pipelines de Automa&ccedil;&atilde;o</span></span>
+      <span class="stack-item ai">&#128172; <span data-lang-inline="en">AI Assistants</span><span data-lang-inline="pt">Assistentes de IA</span></span>
+    </div>
+  </div>
+
+  <div class="stack-category">
+    <div class="stack-category-label">&#9881; <span data-lang-inline="en">Systems & Tools</span><span data-lang-inline="pt">Sistemas & Ferramentas</span></div>
+    <div class="stack-grid">
+      <span class="stack-item erp">&#128203; <span data-lang-inline="en">ERP Development</span><span data-lang-inline="pt">Desenvolvimento ERP</span></span>
+      <span class="stack-item erp">&#128200; <span data-lang-inline="en">Data & Analytics</span><span data-lang-inline="pt">Dados & An&aacute;lise</span></span>
+      <span class="stack-item">&#128196; Git</span>
+      <span class="stack-item">&#9729; GitHub</span>
+      <span class="stack-item">&#129489;&#8205;&#128187; VS Code</span>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-links">
     <a href="https://github.com/SkinDevX" target="_blank">GitHub</a>
     <a href="https://github.com/SkinDevX?tab=repositories" target="_blank">
-      <span data-lang-inline="en">Repositories</span>
-      <span data-lang-inline="pt">Reposit&oacute;rios</span>
+      <span data-lang-inline="en">Repositories</span><span data-lang-inline="pt">Reposit&oacute;rios</span>
     </a>
   </div>
   <p>"Build. Learn. Evolve." &mdash; <a href="https://github.com/SkinDevX">SkinDevX</a></p>
@@ -193,9 +191,8 @@
     });
     localStorage.setItem('skindevx-lang', lang);
   }
-  // Load saved preference
   const saved = localStorage.getItem('skindevx-lang');
   if (saved) setLang(saved);
 </script>
 </body>
-                                                   </html>
+</html>
