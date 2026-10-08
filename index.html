@@ -6,18 +6,18 @@
   <title>SkinDevX | Developer Portfolio</title>
 
   <!-- SEO -->
-  <meta name="description" content="Engenheiro Eletricista & Civil, COO e Builder. 15+ anos em obras e indústria. Constrói as próprias ferramentas: ERP, PWA e automação com IA.">
+  <meta name="description" content="Engenheiro Eletricista & Civil, COO e Builder. 15+ anos em obras e indústria. Constrói os próprios sistemas em produção: ERP, PWA, MCP e automação com IA.">
   <meta name="author" content="SkinDevX">
 
   <!-- Open Graph / Social Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://skindevx.github.io/">
   <meta property="og:title" content="SkinDevX | Developer Portfolio">
-  <meta property="og:description" content="Engenheiro Eletricista & Civil, COO e Builder. 15+ anos em obras e indústria. Constrói as próprias ferramentas: ERP, PWA e automação com IA.">
+  <meta property="og:description" content="Engenheiro Eletricista & Civil, COO e Builder. 15+ anos em obras e indústria. Constrói os próprios sistemas em produção: ERP, PWA, MCP e automação com IA.">
   <meta property="og:image" content="https://opengraph.githubassets.com/1/SkinDevX">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SkinDevX | Developer Portfolio">
-  <meta name="twitter:description" content="Engenheiro Eletricista & Civil, COO e Builder. 15+ anos em obras e indústria. Constrói as próprias ferramentas: ERP, PWA e automação com IA.">
+  <meta name="twitter:description" content="Engenheiro Eletricista & Civil, COO e Builder. 15+ anos em obras e indústria. Constrói os próprios sistemas em produção: ERP, PWA, MCP e automação com IA.">
 
   <!-- Favicon SVG -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d1117'/><text y='.85em' font-size='72' x='12'>💻</text></svg>">
@@ -98,6 +98,13 @@
     .project-tag { background: rgba(0,245,212,.06); border: 1px solid rgba(0,245,212,.15); color: var(--cyan); border-radius: 6px; padding: .2rem .6rem; font-size: .75rem; font-family: 'JetBrains Mono', monospace; }
     .project-tag.ai { background: rgba(167,139,250,.06); border-color: rgba(167,139,250,.2); color: var(--purple); }
     .project-tag.erp { background: rgba(52,211,153,.06); border-color: rgba(52,211,153,.2); color: var(--green); }
+    .project-status { font-size: .72rem; font-family: 'JetBrains Mono', monospace; color: var(--muted); display: flex; align-items: center; gap: .4rem; }
+    .project-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .project-status.wip::before { background: var(--purple); box-shadow: 0 0 6px var(--purple); }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; margin-top: 3rem; }
+    .hero-stat { display: flex; flex-direction: column; align-items: center; }
+    .hero-stat strong { font-family: 'JetBrains Mono', monospace; color: var(--cyan); font-size: 1.4rem; }
+    .hero-stat span { color: var(--muted); font-size: .8rem; }
     .project-link { font-size: .8rem; color: var(--muted); display: flex; align-items: center; gap: .35rem; transition: color .2s; }
     .project-card:hover .project-link { color: var(--cyan); }
 
@@ -163,10 +170,10 @@
       <span data-lang-inline="pt">Engenheiro · COO · Builder</span>
       <span data-lang-inline="en">Engineer · COO · Builder</span>
     </div>
-    <h1 class="hero-title">Hi, I'm <span>SkinDevX</span></h1>
+    <h1 class="hero-title"><span data-lang-inline="pt">Olá, eu sou</span><span data-lang-inline="en">Hi, I'm</span> <span>SkinDevX</span></h1>
     <p class="hero-desc">
-      <span data-lang-inline="pt">Engenheiro e líder de operações com 15+ anos em obras e indústria — que também constrói as próprias ferramentas digitais.</span>
-      <span data-lang-inline="en">Engineer and operations leader with 15+ years in construction and industry — who also builds his own digital tools.</span>
+      <span data-lang-inline="pt">Engenheiro e líder de operações com 15+ anos em obras e indústria — que constrói os sistemas que a própria operação usa, em produção, com IA no dia a dia.</span>
+      <span data-lang-inline="en">Engineer and operations leader with 15+ years in construction and industry — who builds the systems his own operation runs on, in production, with AI every day.</span>
     </p>
     <div class="hero-btns">
       <a href="https://github.com/SkinDevX" target="_blank" class="btn-primary">&#128279; GitHub Profile</a>
@@ -174,6 +181,11 @@
         <span data-lang-inline="pt">Saiba Mais</span>
         <span data-lang-inline="en">Learn More</span>
       </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>15+</strong><span data-lang-inline="pt">anos em obras e indústria</span><span data-lang-inline="en">years in construction &amp; industry</span></div>
+      <div class="hero-stat"><strong>ERP</strong><span data-lang-inline="pt">sistemas próprios em produção</span><span data-lang-inline="en">own systems in production</span></div>
+      <div class="hero-stat"><strong>AI</strong><span data-lang-inline="pt">agentes, MCP e automação</span><span data-lang-inline="en">agents, MCP &amp; automation</span></div>
     </div>
   </section>
 
@@ -203,8 +215,8 @@
         <p><span data-lang-inline="pt">Construo as próprias ferramentas digitais — ERP para gestão de obras, PWAs para equipes de campo, automações e sistemas que nascem da necessidade real da operação.</span><span data-lang-inline="en">I build my own digital tools — ERP for construction management, PWAs for field teams, automations and systems born from real operational needs.</span></p>
       </div>
       <div class="about-card fade-up">
-        <div class="about-card-title">&#129302; AI Power User</div>
-        <p><span data-lang-inline="pt">Uso IA aplicada à engenharia e operações — agentes, automação de processos, análise de dados e apoio à decisão. Exploro LLMs como alavanca real de produtividade técnica.</span><span data-lang-inline="en">I use AI applied to engineering and operations — agents, process automation, data analysis and decision support. I explore LLMs as a real productivity lever in technical environments.</span></p>
+        <div class="about-card-title">&#129302; AI Builder</div>
+        <p><span data-lang-inline="pt">Uso IA todo dia na engenharia e na gestão: agentes, skills, servidores MCP próprios que ligam o assistente aos meus sistemas e uma memória persistente compartilhada entre Claude, Codex e ChatGPT.</span><span data-lang-inline="en">I use AI daily in engineering and management: agents, skills, my own MCP servers that connect the assistant to my systems, and a persistent memory shared between Claude, Codex and ChatGPT.</span></p>
       </div>
       <div class="about-card fade-up">
         <div class="about-card-title">&#128268; <span data-lang-inline="pt">Instalações &amp; Instrumentação</span><span data-lang-inline="en">Installations &amp; Instrumentation</span></div>
@@ -216,7 +228,7 @@
       </div>
       <div class="about-card fade-up">
         <div class="about-card-title">&#128101; <span data-lang-inline="pt">Liderança &amp; Pessoas</span><span data-lang-inline="en">Leadership &amp; People</span></div>
-        <p><span data-lang-inline="pt">Tenho paixão por desenvolver talentos e formar lideranças de campo. Crio ambientes colaborativos que alavancam a performance operacional e o crescimento profissional das equipes.</span><span data-lang-inline="en">I'm passionate about developing talent and building field leaders. I create collaborative environments that boost operational performance and team professional growth.</span></p>
+        <p><span data-lang-inline="pt">Tenho paixão por desenvolver talentos e formar lideranças de campo. Estruturo planos de cargos, salários e carreira e programas de liderança que alavancam a performance e o crescimento das equipes.</span><span data-lang-inline="en">I'm passionate about developing talent and building field leaders. I design job, salary and career plans and leadership programs that boost team performance and growth.</span></p>
       </div>
       <div class="about-card fade-up">
         <div class="about-card-title">&#128203; <span data-lang-inline="pt">Contratos &amp; Clientes</span><span data-lang-inline="en">Contracts &amp; Clients</span></div>
@@ -235,8 +247,8 @@
         <p><span data-lang-inline="pt">Desenvolvo scripts, pipelines e integrações que eliminam trabalho manual e conectam sistemas. Automatizo tarefas repetitivas, gero documentos e estruturo fluxos end-to-end sem intervenção humana.</span><span data-lang-inline="en">I develop scripts, pipelines and integrations that eliminate manual work and connect systems. I automate repetitive tasks, generate documents and structure end-to-end flows without human intervention.</span></p>
       </div>
       <div class="about-card fade-up">
-        <div class="about-card-title">&#129504; Prompt Engineering</div>
-        <p><span data-lang-inline="pt">Construo agentes, assistentes customizados e fluxos com LLMs. Do prompt simples ao agente com contexto técnico — aplico IA de forma prática e orientada a resultado em ambientes de engenharia.</span><span data-lang-inline="en">I build agents, custom assistants and LLM-powered flows. From simple prompts to context-aware technical agents — I apply AI practically and result-oriented in engineering environments.</span></p>
+        <div class="about-card-title">&#128197; <span data-lang-inline="pt">Planejamento &amp; Controle</span><span data-lang-inline="en">Planning &amp; Control</span></div>
+        <p><span data-lang-inline="pt">Planejo e controlo obras com EAP, caminho crítico, Curva S, histograma de mão de obra e Valor Agregado (EVM). Acompanho avanço físico e financeiro e monto planos de recuperação de prazo.</span><span data-lang-inline="en">I plan and control projects with WBS, critical path, S-curve, labor histograms and Earned Value (EVM). I track physical and financial progress and build schedule recovery plans.</span></p>
       </div>
     </div>
   </section>
@@ -294,7 +306,7 @@
       <div class="stack-grid">
         <span class="stack-item">&#127803; PostgreSQL</span>
         <span class="stack-item">&#127803; MySQL</span>
-        <span class="stack-item">&#127803; SQL</span>
+        <span class="stack-item erp">&#9889; Neon (Serverless Postgres)</span>
         <span class="stack-item erp">&#9889; Supabase</span>
         <span class="stack-item erp">&#128293; Firebase / Firestore</span>
         <span class="stack-item erp">&#128274; Auth / <span data-lang-inline="pt">Autenticação</span><span data-lang-inline="en">Authentication</span></span>
@@ -317,7 +329,8 @@
         <span class="stack-item ai">&#128241; WhatsApp Business</span>
         <span class="stack-item ai">&#128279; Webhooks</span>
         <span class="stack-item ai">&#128279; REST APIs</span>
-        <span class="stack-item ai">&#9881; n8n / Make / Zapier</span>
+        <span class="stack-item ai">&#128273; Microsoft Entra ID / Graph API</span>
+        <span class="stack-item ai">&#9881; n8n / Make / Zapier / Composio</span>
         <span class="stack-item ai">&#128259; <span data-lang-inline="pt">Integrações entre Sistemas</span><span data-lang-inline="en">System Integrations</span></span>
         <span class="stack-item ai">&#128172; <span data-lang-inline="pt">Notificações Automatizadas</span><span data-lang-inline="en">Automated Notifications</span></span>
         <span class="stack-item ai">&#128257; <span data-lang-inline="pt">Sincronização de Dados</span><span data-lang-inline="en">Data Sync</span></span>
@@ -329,6 +342,9 @@
       <div class="stack-grid">
         <span class="stack-item ai">&#129681; LLM / AI Agents</span>
         <span class="stack-item ai">&#127756; Claude / GPT / Gemini</span>
+        <span class="stack-item ai">&#128268; MCP (Model Context Protocol)</span>
+        <span class="stack-item ai">&#128187; Claude Code / Codex</span>
+        <span class="stack-item ai">&#129504; <span data-lang-inline="pt">Memória Persistente (Obsidian)</span><span data-lang-inline="en">Persistent Memory (Obsidian)</span></span>
         <span class="stack-item ai">&#129504; <span data-lang-inline="pt">LLMs Open Source</span><span data-lang-inline="en">Open Source LLMs</span></span>
         <span class="stack-item ai">&#10009; <span data-lang-inline="pt">Pipelines de Automação</span><span data-lang-inline="en">Automation Pipelines</span></span>
         <span class="stack-item ai">&#128172; <span data-lang-inline="pt">Assistentes de IA</span><span data-lang-inline="en">AI Assistants</span></span>
@@ -339,7 +355,9 @@
     <div class="stack-category fade-up">
       <div class="stack-category-label">&#9881; <span data-lang-inline="pt">Plataformas &amp; Ferramentas</span><span data-lang-inline="en">Platforms &amp; Tools</span></div>
       <div class="stack-grid">
-        <span class="stack-item erp">&#9651; Deploy &amp; Hosting</span>
+        <span class="stack-item erp">&#9651; Vercel</span>
+        <span class="stack-item erp">&#9729; Cloudflare Pages</span>
+        <span class="stack-item erp">&#128640; Astro</span>
         <span class="stack-item erp">&#9889; BaaS / Backend</span>
         <span class="stack-item erp">&#128293; Firebase</span>
         <span class="stack-item erp">&#128241; PWA</span>
@@ -362,10 +380,42 @@
 
       <div class="project-card fade-up">
         <div class="project-header">
+          <span class="project-name">Hub Corporativo</span>
+          <span class="project-icon">&#127970;</span>
+        </div>
+        <span class="project-status"><span data-lang-inline="pt">Em produção · uso interno</span><span data-lang-inline="en">In production · internal use</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">ERP corporativo que a empresa usa no dia a dia: módulos comercial, cadastro de membros, integração com o ERP de contratos e medições e SST com cálculo de HHT.</span><span data-lang-inline="en">Corporate ERP used daily across the company: sales, member registry, integration with the contracts and measurements ERP, and occupational safety with man-hour (HHT) tracking.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag erp">PostgreSQL / Neon</span>
+          <span class="project-tag erp">Vercel</span>
+          <span class="project-tag erp">ERP</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <span class="project-name">Controle de Documentos &amp; Propostas</span>
+          <span class="project-icon">&#128209;</span>
+        </div>
+        <span class="project-status"><span data-lang-inline="pt">Em produção · uso interno</span><span data-lang-inline="en">In production · internal use</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">Painel de numeração e controle de documentos técnicos e propostas comerciais: pipeline Kanban, funil de vendas, alertas semanais por e-mail, sincronização com planilha corporativa e conector MCP para o assistente de IA reservar números sozinho.</span><span data-lang-inline="en">Numbering and tracking panel for technical documents and sales proposals: Kanban pipeline, sales funnel, weekly e-mail alerts, sync with a corporate spreadsheet and an MCP connector so the AI assistant reserves numbers by itself.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag erp">Neon</span>
+          <span class="project-tag erp">Cloudflare Pages</span>
+          <span class="project-tag ai">MCP</span>
+          <span class="project-tag ai">Microsoft SSO</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-header">
           <span class="project-name">ERP Obras Suite</span>
           <span class="project-icon">&#128203;</span>
         </div>
-        <p class="project-desc"><span data-lang-inline="pt">Sistema ERP completo para gestão de obras e construção civil — controle de processos, financeiro e relatórios integrados.</span><span data-lang-inline="en">Full ERP system for construction management — process control, finance and integrated reports.</span></p>
+        <span class="project-status"><span data-lang-inline="pt">Uso interno</span><span data-lang-inline="en">Internal use</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">Sistema de gestão de obras e construção civil, com controle de processos, financeiro e relatórios integrados.</span><span data-lang-inline="en">Construction management system with process control, finance and integrated reports.</span></p>
         <div class="project-tags">
           <span class="project-tag">JavaScript</span>
           <span class="project-tag erp">ERP</span>
@@ -375,10 +425,66 @@
 
       <div class="project-card fade-up">
         <div class="project-header">
+          <span class="project-name">AI Second Brain</span>
+          <span class="project-icon">&#129504;</span>
+        </div>
+        <span class="project-status"><span data-lang-inline="pt">Em uso diário</span><span data-lang-inline="en">In daily use</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">Memória persistente e compartilhada entre Claude, Codex e ChatGPT: um vault Obsidian com regras, glossário, projetos e decisões, mais skills que fazem qualquer IA retomar o trabalho de onde parou.</span><span data-lang-inline="en">Persistent memory shared between Claude, Codex and ChatGPT: an Obsidian vault with rules, glossary, projects and decisions, plus skills that let any AI pick up the work where it left off.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">Obsidian</span>
+          <span class="project-tag ai">Claude Code</span>
+          <span class="project-tag ai">Codex</span>
+          <span class="project-tag ai">Skills</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <span class="project-name">Field Chat Insights</span>
+          <span class="project-icon">&#128172;</span>
+        </div>
+        <span class="project-status wip"><span data-lang-inline="pt">Em evolução</span><span data-lang-inline="en">In progress</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">Integração com WhatsApp que captura as mensagens dos grupos de campo, organiza e analisa o conteúdo e gera relatórios para a gestão.</span><span data-lang-inline="en">WhatsApp integration that captures field group messages, organizes and analyzes the content and produces reports for management.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag ai">WhatsApp API</span>
+          <span class="project-tag ai">AI Analysis</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <span class="project-name">Histograma com Agentes</span>
+          <span class="project-icon">&#128202;</span>
+        </div>
+        <span class="project-status wip"><span data-lang-inline="pt">Protótipo</span><span data-lang-inline="en">Prototype</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">Orquestração de agentes de IA que gera o histograma de mão de obra de uma obra a partir do cronograma e dos recursos.</span><span data-lang-inline="en">AI agent orchestration that builds a project labor histogram from the schedule and resources.</span></p>
+        <div class="project-tags">
+          <span class="project-tag ai">AI Agents</span>
+          <span class="project-tag erp">Planejamento</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <span class="project-name">RH &amp; Carreiras</span>
+          <span class="project-icon">&#128101;</span>
+        </div>
+        <span class="project-status wip"><span data-lang-inline="pt">Em evolução</span><span data-lang-inline="en">In progress</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">Ferramentas para o plano de cargos, salários e carreira: fichas de cargo, famílias, faixas salariais e acompanhamento do programa de liderança.</span><span data-lang-inline="en">Tools for the job, salary and career plan: job sheets, job families, salary bands and leadership program tracking.</span></p>
+        <div class="project-tags">
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag erp">HR Tech</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-header">
           <span class="project-name">Praise Hub</span>
           <span class="project-icon">&#127925;</span>
         </div>
-        <p class="project-desc"><span data-lang-inline="pt">PWA para gestão de ministério de louvor e escola de música — escalas, substituições, repertório e acompanhamento de alunos.</span><span data-lang-inline="en">PWA for worship ministry and music school management — schedules, substitutions, repertoire and student tracking.</span></p>
+        <span class="project-status"><span data-lang-inline="pt">Projeto pessoal</span><span data-lang-inline="en">Personal project</span></span>
+        <p class="project-desc"><span data-lang-inline="pt">PWA para gestão de ministério de louvor e escola de música: escalas, substituições, repertório, eventos e acompanhamento de alunos, professores e turmas.</span><span data-lang-inline="en">PWA for worship ministry and music school management: schedules, substitutions, repertoire, events and tracking of students, teachers and classes.</span></p>
         <div class="project-tags">
           <span class="project-tag">HTML</span>
           <span class="project-tag erp">PWA</span>
@@ -389,8 +495,9 @@
       <div class="project-card fade-up">
         <div class="project-header">
           <span class="project-name">Orçamento</span>
-          <span class="project-icon">&#128203;</span>
+          <span class="project-icon">&#128176;</span>
         </div>
+        <span class="project-status wip"><span data-lang-inline="pt">Em evolução</span><span data-lang-inline="en">In progress</span></span>
         <p class="project-desc"><span data-lang-inline="pt">Aplicação para criação e gestão de orçamentos profissionais, com geração de documentos e controle de propostas.</span><span data-lang-inline="en">App for creating and managing professional quotes, with document generation and proposal tracking.</span></p>
         <div class="project-tags">
           <span class="project-tag">TypeScript</span>
@@ -398,18 +505,19 @@
         </div>
       </div>
 
-      <div class="project-card fade-up">
+      <a href="https://github.com/SkinDevX/python-automation-scripts" target="_blank" class="project-card fade-up">
         <div class="project-header">
           <span class="project-name">Python Automation Scripts</span>
           <span class="project-icon">&#128013;</span>
         </div>
+        <span class="project-status"><span data-lang-inline="pt">Código aberto</span><span data-lang-inline="en">Open source</span></span>
         <p class="project-desc"><span data-lang-inline="pt">Scripts Python para automação, análise de dados e integração com ERPs — workflows com IA, CSV e SQL.</span><span data-lang-inline="en">Python scripts for automation, data analysis and ERP integration — AI workflows, CSV and SQL.</span></p>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag ai">AI Workflows</span>
           <span class="project-tag">SQL</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
